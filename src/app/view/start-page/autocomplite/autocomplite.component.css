@@ -1,0 +1,24 @@
+.autocomplite-wraper{
+    position: relative;
+}
+
+.auto-content{
+    background-color: azure; 
+    position: absolute;
+    width: 100%;
+    max-height: 250px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    z-index: 1000;
+    border: 1px solid #80bdff;
+    border-radius: 5px;
+}
+.auto-content p{
+    margin: 5px 10px;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+}
+.auto-content p:hover{
+    background-color: antiquewhite;
+    border: 1px solid sandybrown;
+}

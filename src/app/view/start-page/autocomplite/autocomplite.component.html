@@ -1,0 +1,20 @@
+<div class="autocomplite-wraper">
+  
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1"><i class="fas fa-city"></i></span>
+    </div>
+    <input type="text" class="form-control"  (keyup)="search()" placeholder="Enter City" [(ngModel)]="searchCity">
+    <div class="input-group-append" *ngIf="showDropDown">
+        <span style="cursor: pointer" class="input-group-text"  (click)="clearSearch()" id="basic-addon1"><i class="far fa-times-circle"></i></span>
+      </div>
+  </div>
+  <div class="auto-content" *ngIf="showDropDown">
+    <div *ngIf="filterCity.length > 0;else EmptyList">
+      <p (click)="selectCity(city)" style="cursor: pointer" *ngFor="let city of filterCity">{{ city }}</p>
+    </div>
+    <ng-template #EmptyList>
+      <p>No data</p>
+    </ng-template>
+  </div>
+</div>

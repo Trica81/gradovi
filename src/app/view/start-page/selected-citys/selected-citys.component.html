@@ -1,0 +1,7 @@
+<div class="city-select" *ngFor="let item of selectedCity; let i = index">
+
+  <div class="row">
+    <p class="col-md-8 pull-left">{{ item }}  </p> <p (click)="removeCity(i)" class="col-md-4 pull-right" style="cursor: pointer;"><i class="far fa-times-circle"></i></p>
+  </div>
+</div>
+<button [disabled]="selectedCity.length != 4"  (click)="submit()" type="button" class="btn btn-dark">Submit</button>
