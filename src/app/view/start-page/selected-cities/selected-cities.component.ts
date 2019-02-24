@@ -1,16 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { StartService } from '../start-page.service';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-selected-citys',
-  templateUrl: './selected-citys.component.html',
-  styleUrls: ['./selected-citys.component.css']
+  selector: 'app-selected-cities',
+  templateUrl: './selected-cities.component.html',
+  styleUrls: ['./selected-cities.component.css']
 })
-export class SelectedCitysComponent implements OnInit, OnDestroy {
-
-  selectedCity: string[] = [];
+export class SelectedCitiesComponent implements OnInit, OnDestroy {
+  title: String = 'Gradovi';
+  selectedCities: string[] = [];
   private subscription: Subscription;
 
   constructor(private startService: StartService, private router: Router) { }
@@ -26,10 +26,11 @@ export class SelectedCitysComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit( ) {
-    this.subscription = this.startService.selectedCitys.subscribe((data) => {
-      this.selectedCity = data;
+    this.subscription = this.startService.selectedCities.subscribe((data) => {
+      this.selectedCities = data;
     });
   }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

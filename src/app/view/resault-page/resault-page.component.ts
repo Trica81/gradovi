@@ -17,7 +17,7 @@ export class ResaultPageComponent implements OnInit, AfterViewInit {
     strokeWidth: 4,
     easing: 'easeInOut',
     duration: 1500,
-    color: '#ccc',
+    color: 'green',
     trailColor: '#eee',
     from: 0,
     to: 10,
@@ -34,7 +34,6 @@ export class ResaultPageComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit () {
-    console.log(this.answers);
     this.ref.nativeElement.querySelector('svg').style.border = '1px solid black';
     const progress =  this.score / this.answers.length;
     this.lineComp.animate(progress);

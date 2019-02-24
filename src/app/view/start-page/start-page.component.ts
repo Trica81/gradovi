@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./start-page.component.css']
 })
 export class StartPageComponent implements OnInit, OnDestroy {
-    oblast: string;
+    region: string;
     ponudjene: string[] = [];
-    vreme: number;
+    gameTime: number;
     tacno: string[];
     setTime;
 
@@ -22,19 +22,20 @@ export class StartPageComponent implements OnInit, OnDestroy {
     this.startService.onActive(false);
     this.startService.resetGame();
     this.startService.dataLoad().subscribe(( data: GameData) => {
-      this.oblast = data.oblast;
-      this.startService.ponudjeni = data.ponudjene;
-      this.startService.setCorrectCitys(data.tacno);
-      this.vreme = data.vreme;
+      this.region = data.oblast;
+      this.startService.listOfCities = data.ponudjene;
+      this.startService.setCorrectCities(data.tacno);
+      this.gameTime = data.vreme;
     });
+
     this.setTime = setInterval(() => {
-      if (this.vreme === 0) {
+      if (this.gameTime === 0) {
         this.startService.setSelectedCity();
         this.startService.onActive(true);
         this.router.navigate(['resault']);
         clearInterval(this.setTime);
       } else {
-        this.vreme--;
+        this.gameTime--;
       }
     }, 1000);
   }

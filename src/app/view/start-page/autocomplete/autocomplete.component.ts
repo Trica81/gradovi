@@ -3,11 +3,11 @@ import { StartService } from '../start-page.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-autocomplite',
-  templateUrl: './autocomplite.component.html',
-  styleUrls: ['./autocomplite.component.css']
+  selector: 'app-autocomplete',
+  templateUrl: './autocomplete.component.html',
+  styleUrls: ['./autocomplete.component.css']
 })
-export class AutocompliteComponent implements OnInit, OnDestroy {
+export class AutocompleteComponent implements OnInit, OnDestroy {
 
   filterCity: string[] = [];
   searchCity: string;
@@ -32,7 +32,7 @@ export class AutocompliteComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.filterSub = this.startService.onFilterdCitys.subscribe((data: string[]) => {
+    this.filterSub = this.startService.onFilterdCities.subscribe((data: string[]) => {
       this.filterCity = data;
     });
   }

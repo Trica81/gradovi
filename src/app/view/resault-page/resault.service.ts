@@ -12,10 +12,9 @@ export class ResaultService {
     constructor( private appService: AppService) { }
 
     score() {
-        console.log(this.appService.tacno)
-        this.correct.next(this.appService.tacno);
+        this.correct.next(this.appService.correctAnswers);
         this.userAnswer = this.appService.selectedCity;
-        return this.countCorrect(this.appService.selectedCity, this.appService.tacno);
+        return this.countCorrect(this.appService.selectedCity, this.appService.correctAnswers);
     }
 
     countCorrect(user: string[], correct: string[]) {

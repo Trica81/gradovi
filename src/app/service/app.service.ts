@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
 
 @Injectable()
 export class AppService {
+
     private isActive = false;
 
-    private _tacno: string[];
+    private _correctAnswers: string[];
     private _selectedCity: string[] = [];
 
-    public get tacno(): string[] {
-        return this._tacno;
+    public get correctAnswers(): string[] {
+        return this._correctAnswers;
     }
 
-    public set tacno(value: string[]) {
-        this._tacno = value;
+    public set correctAnswers(value: string[]) {
+        this._correctAnswers = value;
     }
 
     public get selectedCity(): string[] {
@@ -28,6 +28,7 @@ export class AppService {
     url = './assets/podaci.json';
 
     constructor (private http: HttpClient) { }
+
     onStartData() {
         return this.http.get(this.url);
     }
